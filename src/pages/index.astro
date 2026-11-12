@@ -17,7 +17,7 @@ const servicios = [
 const maps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Asesoría Proyecto FM, C/ Ingeniero Mariño 7, 19001 Guadalajara');
 ---
 <L title="Asesoría Proyecto FM · Guadalajara" description="Asesoría fiscal, laboral y contable para pymes y autónomos en Guadalajara. Un despacho organizado desde 1975, con un equipo de 10 profesionales.">
-<div class="franja">Propuesta de diseño para Asesoría Proyecto FM · preparada por <a href="https://sergiogarciaweb.com">Sergio García</a></div>
+<div class="franja" role="note"><strong>Propuesta de diseño para Asesoría Proyecto FM, no es su web definitiva</strong> <span>· preparada por <a href="https://sergiogarciaweb.com">Sergio García</a></span></div>
 
 <header class="cab">
   <a class="marca" href="#inicio" aria-label="Asesoría Proyecto FM, inicio">
@@ -47,27 +47,41 @@ const maps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICompo
 </section>
 
 <section class="cifras" aria-label="El despacho en datos">
-  <div><b>1975</b><span>año desde el que está organizado el despacho</span></div>
-  <div><b>10</b><span>profesionales en áreas especializadas e informatizadas</span></div>
-  <div><b>1998</b><span>comunicación electrónica directa con la Seguridad Social (RED)</span></div>
+  <div class="rv"><b data-count="1975" data-plain>1975</b><span>año desde el que está organizado el despacho</span></div>
+  <div class="rv" style="--i:1"><b data-count="10">10</b><span>profesionales en áreas especializadas e informatizadas</span></div>
+  <div class="rv" style="--i:2"><b data-count="4.9" data-dec="1">4,9</b><span><i data-count="142">142</i> reseñas en Google</span></div>
+</section>
+
+<section class="comp sec" aria-labelledby="comp-t">
+  <h2 id="comp-t" class="rv">De lo que se ve hoy a esta propuesta</h2>
+  <p class="sub rv">Arrastre el deslizador. A la izquierda, lo que aparece hoy al entrar en proyectofm.es (captura del 12/11/2026); a la derecha, la propuesta.</p>
+  <div class="cmp rv" id="cmp" style="--p:50%">
+    <div class="cmp-a"><picture><source media="(max-width:640px)" srcset={`${base}/actual/movil.png`} /><img src={`${base}/actual/escritorio.png`} width="1440" height="900" alt="Captura de proyectofm.es hoy: una página de servidor por defecto, en inglés y castellano" /></picture></div>
+    <div class="cmp-b" aria-hidden="true">
+      <div class="cmp-hero"><img src={`${base}/logo-proyecto-fm.png`} width="125" height="133" alt="" /><p>Asesoría fiscal, laboral y contable para su empresa en Guadalajara</p><span class="btn btn-sm">Llamar al 949 21 93 65</span><em>1975</em></div>
+    </div>
+    <span class="cmp-et cmp-et-a">Su web actual</span><span class="cmp-et cmp-et-b">Esta propuesta</span>
+    <span class="cmp-asa" aria-hidden="true"></span>
+    <input class="cmp-r" type="range" min="0" max="100" value="50" aria-label="Deslizador para comparar su web actual con la propuesta" />
+  </div>
 </section>
 
 <section id="servicios" class="sec">
-  <h2>Qué llevamos por usted</h2>
-  <p class="sub">Diez áreas, un solo despacho. Todo lo que necesita una empresa, desde un autónomo hasta una pyme.</p>
+  <h2 class="rv">Qué llevamos por usted</h2>
+  <p class="sub rv">Diez áreas, un solo despacho. Todo lo que necesita una empresa, desde un autónomo hasta una pyme.</p>
   <ol class="libro">
-    {servicios.map(([n, d]) => (
-      <li><h3>{n}</h3><span class="punt" aria-hidden="true"></span><p>{d}</p></li>
+    {servicios.map(([n, d], i) => (
+      <li class="rv" style={`--i:${i}`}><h3>{n}</h3><span class="punt" aria-hidden="true"></span><p>{d}</p></li>
     ))}
   </ol>
 </section>
 
 <section id="despacho" class="sec despacho">
-  <div>
+  <div class="rv">
     <h2>Un despacho, una cuota</h2>
     <p>Sea cual sea la dimensión de su negocio, y por una cuota que puede ser fija si lo desea, contará con el equipo completo de profesionales, sin recargar su presupuesto.</p>
   </div>
-  <div>
+  <div class="rv" style="--i:1">
     <p>Estudiamos si está al corriente con la Administración o si puede beneficiarse de una gestión más eficiente. También le orientamos en la colocación de sus excedentes de tesorería y en productos inmobiliarios.</p>
     <p class="cita">Nuestros clientes son nuestra mejor garantía: avalan nuestra trayectoria de eficacia, competencia y discreción.</p>
   </div>
@@ -97,10 +111,34 @@ const maps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICompo
     </div>
   </div>
 </section>
+
+<section class="hablamos" aria-label="Autor de la propuesta">
+  <div class="sec">
+    <h2 class="rv">¿Te gusta? Hablamos.</h2>
+    <p class="sub rv">Esta página es una propuesta de diseño preparada por Sergio García, que hace webs para negocios locales. Si quiere verla publicada con su dominio, visite su web.</p>
+    <div class="acciones rv"><a class="btn" href="https://sergiogarciaweb.com">Ir a sergiogarciaweb.com</a></div>
+  </div>
+</section>
 </main>
 
 <footer class="pie">
   <span>PROYECTO FM, S.L. · C/ Ingeniero Mariño, 7 - Bajo, 19001 Guadalajara</span>
   <span>Demo no oficial: avisos legales y política de privacidad por incorporar de la web original.</span>
 </footer>
+<script is:inline>
+(function(){
+var d=document.documentElement,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function f(n,dec){return dec?n.toFixed(dec).replace('.',','):String(Math.round(n))}
+var cmp=document.getElementById('cmp');
+if(cmp){var r=cmp.querySelector('input');var u=function(){cmp.style.setProperty('--p',r.value+'%')};r.addEventListener('input',u);u()}
+if(rm||!('IntersectionObserver' in window))return;
+d.classList.add('js');
+function run(el){var t=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),s=('plain' in el.dataset)?t-60:0,t0=performance.now();
+function tick(now){var n=Math.min(1,(now-t0)/1600),v=s+(t-s)*(1-Math.pow(1-n,3));el.textContent=f(v,dec);if(n<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+var ic=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run(e.target);ic.unobserve(e.target)}})},{threshold:.4});
+document.querySelectorAll('[data-count]').forEach(function(el){ic.observe(el)});
+})();
+</script>
 </L>
