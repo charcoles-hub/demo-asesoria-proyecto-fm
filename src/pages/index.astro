@@ -1,0 +1,106 @@
+---
+import L from '../layouts/L.astro';
+import '../styles.css';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const servicios = [
+  ['Gestión de pymes y autónomos', 'Tratamiento de sus datos fiscales y contables para presentar bien las declaraciones y pagar lo justo, sin recargar su presupuesto.'],
+  ['Asesoría fiscal', 'Planificar el impacto fiscal de la actividad y de operaciones puntuales, y aplicar las normas más beneficiosas para su empresa.'],
+  ['Asesoría laboral', 'Contratación, altas y bajas, cotizaciones. Remisión electrónica de datos con la Seguridad Social (sistema RED) desde 1998, y estudio de jubilaciones y prestaciones.'],
+  ['Asesoría contable', 'Contabilidad completa o revisión de la que lleve usted, con informes, balances y cuentas de resultados para ver cómo va su empresa.'],
+  ['Asesoría jurídica', 'Asesoramiento y representación ante cualquier jurisdicción en asuntos de pymes.'],
+  ['Auditoría', 'Auditoría externa, obligatoria o voluntaria, y auditoría interna. Integrados en ADADE Auditores, puesto nº 11 del ranking español de firmas.'],
+  ['Prevención de riesgos laborales', 'Técnico medio en prevención homologado: estudia su situación, indica las medidas y hace seguimiento.'],
+  ['Consultoría', 'Consultoría financiera para optimizar la gestión empresarial.'],
+  ['Gestoría', 'Gestión administrativa adaptada a las necesidades de cada cliente.'],
+  ['LOPD', 'Protección de datos: inscripción de ficheros, documento de seguridad, contratos y cláusulas, y auditoría.'],
+];
+const maps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Asesoría Proyecto FM, C/ Ingeniero Mariño 7, 19001 Guadalajara');
+---
+<L title="Asesoría Proyecto FM · Guadalajara" description="Asesoría fiscal, laboral y contable para pymes y autónomos en Guadalajara. Un despacho organizado desde 1975, con un equipo de 10 profesionales.">
+<div class="franja">Propuesta de diseño para Asesoría Proyecto FM · preparada por <a href="https://sergiogarciaweb.com">Sergio García</a></div>
+
+<header class="cab">
+  <a class="marca" href="#inicio" aria-label="Asesoría Proyecto FM, inicio">
+    <img src={`${base}/logo-proyecto-fm.png`} width="125" height="133" alt="" />
+    <span>Asesoría<br />Proyecto FM</span>
+  </a>
+  <nav aria-label="Principal">
+    <a href="#servicios">Servicios</a>
+    <a href="#despacho">El despacho</a>
+    <a href="#contacto">Contacto</a>
+    <a class="btn btn-sm" href="tel:+34949219365">Llamar</a>
+  </nav>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <p class="año" aria-hidden="true">1975</p>
+  <div class="hero-in">
+    <h1>Asesoría fiscal, laboral y contable para su empresa en Guadalajara</h1>
+    <p class="lead">Un equipo humano organizado desde 1975 para ofrecer todos los servicios profesionales que su empresa necesita, sea cual sea su tamaño. Consúltenos sin compromiso.</p>
+    <div class="acciones">
+      <a class="btn" href="tel:+34949219365">Llamar al 949 21 93 65</a>
+      <a class="btn btn-claro" href="mailto:asesoria@proyectofm.es">Escribir un correo</a>
+    </div>
+    <p class="google"><strong>4,9</strong> de 5 en Google, con 142 reseñas</p>
+  </div>
+</section>
+
+<section class="cifras" aria-label="El despacho en datos">
+  <div><b>1975</b><span>año desde el que está organizado el despacho</span></div>
+  <div><b>10</b><span>profesionales en áreas especializadas e informatizadas</span></div>
+  <div><b>1998</b><span>comunicación electrónica directa con la Seguridad Social (RED)</span></div>
+</section>
+
+<section id="servicios" class="sec">
+  <h2>Qué llevamos por usted</h2>
+  <p class="sub">Diez áreas, un solo despacho. Todo lo que necesita una empresa, desde un autónomo hasta una pyme.</p>
+  <ol class="libro">
+    {servicios.map(([n, d]) => (
+      <li><h3>{n}</h3><span class="punt" aria-hidden="true"></span><p>{d}</p></li>
+    ))}
+  </ol>
+</section>
+
+<section id="despacho" class="sec despacho">
+  <div>
+    <h2>Un despacho, una cuota</h2>
+    <p>Sea cual sea la dimensión de su negocio, y por una cuota que puede ser fija si lo desea, contará con el equipo completo de profesionales, sin recargar su presupuesto.</p>
+  </div>
+  <div>
+    <p>Estudiamos si está al corriente con la Administración o si puede beneficiarse de una gestión más eficiente. También le orientamos en la colocación de sus excedentes de tesorería y en productos inmobiliarios.</p>
+    <p class="cita">Nuestros clientes son nuestra mejor garantía: avalan nuestra trayectoria de eficacia, competencia y discreción.</p>
+  </div>
+</section>
+
+<section id="contacto" class="contacto">
+  <div class="sec contacto-in">
+    <h2>Concierte una entrevista sin compromiso</h2>
+    <p class="sub">Cuéntenos qué necesita y le orientamos en la optimización de su gestión empresarial.</p>
+    <div class="datos">
+      <div>
+        <h3>Teléfono</h3>
+        <p><a href="tel:+34949219365">949 21 93 65</a><br /><a href="tel:+34949212003">949 21 20 03</a></p>
+      </div>
+      <div>
+        <h3>Correo</h3>
+        <p><a href="mailto:asesoria@proyectofm.es">asesoria@proyectofm.es</a></p>
+      </div>
+      <div>
+        <h3>Despacho</h3>
+        <p>C/ Ingeniero Mariño, 7 - Bajo<br />19001 Guadalajara<br /><a href={maps}>Ver en Google Maps</a></p>
+      </div>
+    </div>
+    <div class="acciones">
+      <a class="btn" href="tel:+34949219365">Llamar al 949 21 93 65</a>
+      <a class="btn btn-claro" href="mailto:asesoria@proyectofm.es">Escribir un correo</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pie">
+  <span>PROYECTO FM, S.L. · C/ Ingeniero Mariño, 7 - Bajo, 19001 Guadalajara</span>
+  <span>Demo no oficial: avisos legales y política de privacidad por incorporar de la web original.</span>
+</footer>
+</L>
